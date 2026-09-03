@@ -1,3 +1,9 @@
+## 1.0.0 (2026-09-03)
+
+### Features
+
+* add prompting deck components and content for AI prompting framework ([d1c80e4](https://github.com/ericthayer/prompt-engineering/commit/d1c80e43c1b7ff74113dfbbef10a377882378cff))
+
 ## [1.1.0](https://github.com/ericthayer/agentic-orchestrator/compare/v1.0.0...v1.1.0) (2026-01-25)
 
 ### Features
