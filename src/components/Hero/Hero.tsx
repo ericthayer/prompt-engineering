@@ -247,7 +247,7 @@ export const Hero: React.FC = () => {
       <canvas ref={canvasRef} className="absolute top-0 left-0 block h-full w-full" />
 
       <nav className="absolute top-0 left-0 z-20 flex w-full box-border items-center justify-between p-8 font-['Inter',sans-serif]">
-        <a href="#" className="text-[1.8rem] font-black text-white no-underline">Stellar</a>
+        <a href="#" className="text-[1.8rem] font-black text-white no-underline">LearnAI</a>
         <div className="hidden md:flex gap-8">
           <a href="#" className="relative py-[6px] px-[3px] font-semibold text-white no-underline opacity-100 transition-shadow duration-300 hover:shadow-[0_0_10px_rgba(109,40,217,0.8)] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-linear-to-r after:from-[#6D28D9] after:to-[#DB2777] after:transition-transform after:duration-300 after:ease-out after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-1">Home</a>
           <a href="#" className="relative py-[6px] px-[3px] font-semibold text-white no-underline opacity-100 transition-shadow duration-300 hover:shadow-[0_0_10px_rgba(109,40,217,0.8)] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-linear-to-r after:from-[#6D28D9] after:to-[#DB2777] after:transition-transform after:duration-300 after:ease-out after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-1">Features</a>
@@ -275,17 +275,17 @@ export const Hero: React.FC = () => {
 
       <div className="absolute top-0 left-0 z-10 flex h-screen w-full pointer-events-none flex-col items-center justify-center p-5 text-center text-white font-['Inter',sans-serif]">
         <div className="max-w-[800px] pointer-events-auto animate-[fadeIn_1.5s_ease-out]">
-          <h1 className="mb-4 text-[2.5rem] md:text-[4.5rem] font-extrabold bg-linear-to-r from-[#6D28D9] to-[#DB2777] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]">Master AI Prompting</h1>
-          <p className="mx-auto mb-10 max-w-[760px] text-[1.1rem] md:text-[1.5rem] leading-relaxed opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">The Core Framework: Persona, Task, Format, and Context. Combine this structure with iterative refinement to consistently guide AI to accurate, high-quality results.</p>
+          <h1 className="type-display mb-4 font-extrabold leading-[1.05] tracking-tight bg-linear-to-r from-[#6D28D9] to-[#DB2777] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]">Master AI Prompting</h1>
+          <p className="type-body mx-auto mb-10 max-w-[65ch] leading-relaxed opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">The Core Framework: Persona, Task, Format, and Context. Combine this structure with iterative refinement to consistently guide AI to accurate, high-quality results.</p>
           <button
             onClick={scrollToCloudSection}
-            className="rounded-xl cursor-pointer bg-linear-to-l from-[#6D28D9] to-[#DB2777] py-4 px-9 text-[1.2rem] font-semibold text-white shadow-[0_4px_20px_rgba(109,40,217,0.4)] transition-all duration-300 hover:translate-y-[-3px] hover:shadow-[0_7px_30_rgba(109,40,217,0.6)] active:scale-95"
+            className="type-control rounded-xl cursor-pointer bg-linear-to-l from-[#6D28D9] to-[#DB2777] py-4 px-9 font-semibold text-white shadow-[0_4px_20px_rgba(109,40,217,0.4)] transition-all duration-300 hover:translate-y-[-3px] hover:shadow-[0_7px_30_rgba(109,40,217,0.6)] active:scale-95"
           >
             Learn the Framework
           </button>
           <button
             onClick={scrollToCloudSection}
-            className="rounded-xl cursor-pointer bg-transparent border-2 border-white/20 ml-4 py-4 px-9 text-[1.2rem] font-semibold text-white transition-all duration-300 hover:bg-white/10 hover:border-white/40 active:scale-95"
+            className="type-control rounded-xl cursor-pointer bg-transparent border-2 border-white/20 ml-4 py-4 px-9 font-semibold text-white transition-all duration-300 hover:bg-white/10 hover:border-white/40 active:scale-95"
           >
             Explore the 3 C&apos;s
           </button>

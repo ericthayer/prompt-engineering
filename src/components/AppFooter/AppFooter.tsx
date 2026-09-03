@@ -1,12 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { Github, Twitter, Linkedin, ArrowRight } from 'lucide-react';
 
 export const AppFooter: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouse = useRef({ x: 0, y: 0 });
-  const [email, setEmail] = useState('');
+
+  const scrollToSection = (event: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    event.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    section.parentElement?.scrollTo({ top: section.offsetTop, behavior: 'smooth' });
+    window.history.replaceState(null, '', `#${sectionId}`);
+  };
 
   useEffect(() => {
     if (!canvasRef.current || !containerRef.current) return;
@@ -130,12 +137,6 @@ export const AppFooter: React.FC = () => {
     };
   }, []);
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert(`Subscribed: ${email}`);
-    setEmail('');
-  };
-
   return (
     <footer className="relative w-full snap-start bg-[#050505] border-t border-white/5 pt-20 pb-10 overflow-hidden" ref={containerRef}>
       {/* Lava Lamp Canvas (Balanced & Reactive) */}
@@ -154,12 +155,11 @@ export const AppFooter: React.FC = () => {
               Keep prompts concise, clear, and consistent. Use iterative refinement to improve output quality across every AI task.
             </p>
             <div className="flex items-center gap-4">
-              {[Linkedin, GITHUB, Twitter].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition-all hover:bg-white/5">
-                  {/* @ts-ignore */}
+              {/* {socialLinks.map(({ label, href, Icon }) => (
+                <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition-all hover:bg-white/5">
                   <Icon size={18} />
                 </a>
-              ))}
+              ))} */}
             </div>
           </div>
 
@@ -167,10 +167,10 @@ export const AppFooter: React.FC = () => {
           <div>
             <h4 className="text-white font-bold mb-6">Framework</h4>
             <ul className="space-y-4 text-gray-400 text-sm">
-              <li><a href="#" className="hover:text-purple-400 transition-colors">Persona</a></li>
-              <li><a href="#" className="hover:text-purple-400 transition-colors">Task</a></li>
-              <li><a href="#" className="hover:text-purple-400 transition-colors">Format</a></li>
-              <li><a href="#" className="hover:text-purple-400 transition-colors">Context</a></li>
+              <li><a href="#cloud-section" onClick={(event) => scrollToSection(event, 'cloud-section')} className="hover:text-purple-400 transition-colors">Persona</a></li>
+              <li><a href="#cloud-section" onClick={(event) => scrollToSection(event, 'cloud-section')} className="hover:text-purple-400 transition-colors">Task</a></li>
+              <li><a href="#cloud-section" onClick={(event) => scrollToSection(event, 'cloud-section')} className="hover:text-purple-400 transition-colors">Format</a></li>
+              <li><a href="#evaluation" onClick={(event) => scrollToSection(event, 'evaluation')} className="hover:text-purple-400 transition-colors">Context</a></li>
             </ul>
           </div>
 
@@ -178,34 +178,27 @@ export const AppFooter: React.FC = () => {
           <div>
             <h4 className="text-white font-bold mb-6">Best Practices</h4>
             <ul className="space-y-4 text-gray-400 text-sm">
-              <li><a href="#" className="hover:text-purple-400 transition-colors">Prompt Chaining</a></li>
-              <li><a href="#" className="hover:text-purple-400 transition-colors">Context Hygiene</a></li>
-              <li><a href="#" className="hover:text-purple-400 transition-colors">Output Evaluation</a></li>
-              <li><a href="#" className="hover:text-purple-400 transition-colors">Iteration Loops</a></li>
+              <li><a href="#chaining" onClick={(event) => scrollToSection(event, 'chaining')} className="hover:text-purple-400 transition-colors">Prompt Chaining</a></li>
+              <li><a href="#evaluation" onClick={(event) => scrollToSection(event, 'evaluation')} className="hover:text-purple-400 transition-colors">Context Hygiene</a></li>
+              <li><a href="#evaluation" onClick={(event) => scrollToSection(event, 'evaluation')} className="hover:text-purple-400 transition-colors">Output Evaluation</a></li>
+              <li><a href="#chaining" onClick={(event) => scrollToSection(event, 'chaining')} className="hover:text-purple-400 transition-colors">Iteration Loops</a></li>
             </ul>
           </div>
 
           {/* Newsletter */}
           <div className="md:col-span-2 lg:col-span-1">
             <h4 className="text-white font-bold mb-6">Practice Prompting</h4>
-            <form onSubmit={handleSubscribe} className="space-y-4">
-              <div className="relative">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Try a prompt idea"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-purple-500/50 transition-all"
-                  required
-                />
-                <button type="submit" className="absolute right-2 top-1.5 bottom-1.5 px-4 bg-purple-600 rounded-lg text-white hover:bg-purple-500 transition-all shadow-lg shadow-purple-900/20">
-                  <ArrowRight size={16} />
-                </button>
-              </div>
-              <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">
-                Refine, test, improve
-              </p>
-            </form>
+            <a
+              href="https://www.coursera.org/professional-certificates/google-ai"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-12 items-center rounded-xl bg-purple-600 px-5 py-3 text-sm font-bold text-white transition-all hover:bg-purple-500 active:scale-[0.98]"
+            >
+              Explore Google AI Certificate
+            </a>
+            <p className="mt-4 text-sm leading-relaxed text-gray-400">
+              Build practical AI fluency with Google.
+            </p>
           </div>
 
         </div>
@@ -216,14 +209,12 @@ export const AppFooter: React.FC = () => {
             © 2026 Prompting Fundamentals Deck v{__APP_VERSION__}. Built for team enablement.
           </p>
           <div className="flex gap-8 text-gray-500 text-xs font-medium">
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Cookies</a>
+            <a href="https://docs.github.com/site-policy/github-terms/github-terms-of-service" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Terms</a>
+            <a href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Privacy</a>
+            <a href="https://docs.github.com/site-policy/privacy-policies/github-cookies" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Cookies</a>
           </div>
         </div>
       </div>
     </footer>
   );
 };
-
-const GITHUB = Github;

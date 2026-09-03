@@ -1,26 +1,35 @@
-import { useState } from 'react'
-import { Hero } from './components/Hero/Hero'
-import { CloudSection } from './components/CloudSection/CloudSection'
-import { DigitalAssetsSection } from './components/DigitalAssetsSection/DigitalAssetsSection'
-import { ContactBanner } from './components/ContactBanner/ContactBanner'
-import { AppFooter } from './components/AppFooter/AppFooter'
-import { InteractiveJourney } from './components/InteractiveJourney/InteractiveJourney'
+import { ContextDriftSection } from './components/ContextDriftSection/ContextDriftSection'
+import { ContextWindowSection } from './components/ContextWindowSection/ContextWindowSection'
+import { DeckBackdrop } from './components/DeckBackdrop/DeckBackdrop'
+import { DeckHashNavigation } from './components/DeckSection/DeckHashNavigation'
+import { EvaluationChecklist } from './components/EvaluationChecklist/EvaluationChecklist'
+import { IterationSection } from './components/IterationSection/IterationSection'
+import { KeyTakeawaysSection } from './components/KeyTakeawaysSection/KeyTakeawaysSection'
+import { PowerPhrasesSection } from './components/PowerPhrasesSection/PowerPhrasesSection'
+import { PromptChainingSection } from './components/PromptChainingSection/PromptChainingSection'
+import { PromptingHero } from './components/PromptingHero/PromptingHero'
+import { ThreeCsSection } from './components/ThreeCsSection/ThreeCsSection'
 
 function App() {
-  const [view, setView] = useState<'landing' | 'journey'>('landing');
-
-  if (view === 'journey') {
-    return <InteractiveJourney onExit={() => setView('landing')} />;
-  }
-
   return (
-    <main className="h-screen w-full snap-y snap-mandatory overflow-y-scroll scroll-smooth">
-      <Hero />
-      <CloudSection />
-      <DigitalAssetsSection />
-      <ContactBanner />
-      <AppFooter />
-    </main>
+    <div className="relative h-[100dvh] overflow-hidden bg-[var(--deck-bg)] text-[var(--deck-text)]">
+      <DeckBackdrop />
+      <DeckHashNavigation />
+      <main
+        className="relative z-[1] h-[100dvh] overflow-y-auto"
+        aria-label="AI prompting fundamentals presentation"
+      >
+        <PromptingHero />
+        <ThreeCsSection />
+        <PowerPhrasesSection />
+        <PromptChainingSection />
+        <ContextWindowSection />
+        <ContextDriftSection />
+        <IterationSection />
+        <KeyTakeawaysSection />
+        <EvaluationChecklist />
+      </main>
+    </div>
   )
 }
 
