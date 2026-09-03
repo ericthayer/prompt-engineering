@@ -221,17 +221,17 @@ export const CloudSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="cloud-section" className="relative flex w-full flex-col items-center overflow-hidden bg-black" ref={containerRef}>
+    <section id="cloud-section" className="relative flex h-screen w-full snap-start flex-col items-center overflow-hidden bg-black" ref={containerRef}>
       <div className="sticky top-0 z-10 h-screen w-full">
         <div className="absolute top-1/2 left-1/2 z-20 flex w-full translate-x-[-50%] translate-y-[-50%] pointer-events-none flex-col items-center justify-center p-5 text-center text-white">
           <h2 className={`mb-8 max-w-[900px] text-[clamp(2.5rem,8vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-1000 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${scrollProgress > 0.2 && scrollProgress < 0.9 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-5 blur-[8px]'}`}>
-            Say hello to the ultimate shader editor.
+            The Three C&apos;s of Prompt Writing
           </h2>
           <p className={`mx-auto mb-12 max-w-[550px] text-[clamp(1rem,2vw,1.35rem)] font-normal leading-relaxed text-white/90 transition-all duration-1000 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${scrollProgress > 0.3 && scrollProgress < 0.9 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-5 blur-[8px]'}`}>
-            Create, fork and publish shader graphs with the world using an intuitive and easy to use tool built for all.
+            Write better prompts by keeping them <strong>Concise</strong> (avoiding overly complex requests), <strong>Clear</strong> (providing precise, unambiguous directions), and <strong>Consistent</strong> (using the same vocabulary for the same concepts throughout your chat).
           </p>
           <button className={`pointer-events-auto cursor-pointer rounded-xl bg-white py-4.5 px-10 text-[1.15rem] font-bold text-black transition-all duration-1000 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:scale-[1.08] hover:shadow-[0_10px_40px_rgba(255,255,255,0.3)] active:scale-95 ${scrollProgress > 0.4 && scrollProgress < 0.9 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-5 blur-[8px]'}`}>
-            Open App →
+            Read the Guidelines →
           </button>
         </div>
         <canvas ref={canvasRef} className="block h-full w-full" />

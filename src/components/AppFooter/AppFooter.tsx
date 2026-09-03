@@ -137,7 +137,7 @@ export const AppFooter: React.FC = () => {
   };
 
   return (
-    <footer className="relative w-full bg-[#050505] border-t border-white/5 pt-20 pb-10 overflow-hidden" ref={containerRef}>
+    <footer className="relative w-full snap-start bg-[#050505] border-t border-white/5 pt-20 pb-10 overflow-hidden" ref={containerRef}>
       {/* Lava Lamp Canvas (Balanced & Reactive) */}
       <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none opacity-50 blur-[100px]" />
 
@@ -148,10 +148,10 @@ export const AppFooter: React.FC = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-6">
               <div className="w-8 h-8 bg-gradient-to-tr from-purple-600 to-blue-500 rounded-lg" />
-              <span className="text-xl font-bold text-white tracking-tight">AGENTIC</span>
+              <span className="text-xl font-bold text-white tracking-tight">PROMPTING</span>
             </div>
             <p className="text-gray-400 max-w-sm leading-relaxed mb-8">
-              Building the next generation of asset infrastructure with AI-driven orchestration and premium design systems.
+              Keep prompts concise, clear, and consistent. Use iterative refinement to improve output quality across every AI task.
             </p>
             <div className="flex items-center gap-4">
               {[Linkedin, GITHUB, Twitter].map((Icon, i) => (
@@ -165,36 +165,36 @@ export const AppFooter: React.FC = () => {
 
           {/* Product Links */}
           <div>
-            <h4 className="text-white font-bold mb-6">Product</h4>
+            <h4 className="text-white font-bold mb-6">Framework</h4>
             <ul className="space-y-4 text-gray-400 text-sm">
-              <li><a href="#" className="hover:text-purple-400 transition-colors">Components</a></li>
-              <li><a href="#" className="hover:text-purple-400 transition-colors">Templates <span className="ml-1 text-[10px] bg-purple-500/20 text-purple-400 px-1.5 py-0.5 rounded-full uppercase font-bold">New</span></a></li>
-              <li><a href="#" className="hover:text-purple-400 transition-colors">Pricing</a></li>
-              <li><a href="#" className="hover:text-purple-400 transition-colors">Integrations</a></li>
+              <li><a href="#" className="hover:text-purple-400 transition-colors">Persona</a></li>
+              <li><a href="#" className="hover:text-purple-400 transition-colors">Task</a></li>
+              <li><a href="#" className="hover:text-purple-400 transition-colors">Format</a></li>
+              <li><a href="#" className="hover:text-purple-400 transition-colors">Context</a></li>
             </ul>
           </div>
 
           {/* Company Links */}
           <div>
-            <h4 className="text-white font-bold mb-6">Company</h4>
+            <h4 className="text-white font-bold mb-6">Best Practices</h4>
             <ul className="space-y-4 text-gray-400 text-sm">
-              <li><a href="#" className="hover:text-purple-400 transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-purple-400 transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-purple-400 transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-purple-400 transition-colors">Security</a></li>
+              <li><a href="#" className="hover:text-purple-400 transition-colors">Prompt Chaining</a></li>
+              <li><a href="#" className="hover:text-purple-400 transition-colors">Context Hygiene</a></li>
+              <li><a href="#" className="hover:text-purple-400 transition-colors">Output Evaluation</a></li>
+              <li><a href="#" className="hover:text-purple-400 transition-colors">Iteration Loops</a></li>
             </ul>
           </div>
 
           {/* Newsletter */}
           <div className="md:col-span-2 lg:col-span-1">
-            <h4 className="text-white font-bold mb-6">Stay up to date</h4>
+            <h4 className="text-white font-bold mb-6">Practice Prompting</h4>
             <form onSubmit={handleSubscribe} className="space-y-4">
               <div className="relative">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
+                  placeholder="Try a prompt idea"
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-purple-500/50 transition-all"
                   required
                 />
@@ -203,7 +203,7 @@ export const AppFooter: React.FC = () => {
                 </button>
               </div>
               <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">
-                Join 5,000+ developers
+                Refine, test, improve
               </p>
             </form>
           </div>
@@ -213,7 +213,7 @@ export const AppFooter: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-500 text-xs">
-            © 2026 Agentic Inc. v{__APP_VERSION__}. All rights reserved. Built with orchestration.
+            © 2026 Prompting Fundamentals Deck v{__APP_VERSION__}. Built for team enablement.
           </p>
           <div className="flex gap-8 text-gray-500 text-xs font-medium">
             <a href="#" className="hover:text-white transition-colors">Terms</a>

@@ -14,8 +14,8 @@ function App() {
   }
 
   return (
-    <main className="w-full">
-      <Hero onStartJourney={() => setView('journey')} />
+    <main className="h-screen w-full snap-y snap-mandatory overflow-y-scroll scroll-smooth">
+      <Hero />
       <CloudSection />
       <DigitalAssetsSection />
       <ContactBanner />
@@ -25,4 +25,3 @@ function App() {
 }
 
 export default App
-

@@ -7,8 +7,8 @@ interface DigitalAssetsSectionProps {
 }
 
 export const DigitalAssetsSection: React.FC<DigitalAssetsSectionProps> = ({
-  title = "Compound Digital Assets",
-  subtitle = "Build, version, and share components to create scalable applications faster than ever"
+  title = "Precision & Prompt Chaining",
+  subtitle = "Don't just tell the AI what to do; guide how it should get there."
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -150,8 +150,8 @@ export const DigitalAssetsSection: React.FC<DigitalAssetsSectionProps> = ({
   return (
     <section
       ref={containerRef}
-      className="relative bg-[#050505] text-white flex items-center overflow-hidden pt-24 pb-12 lg:py-20 px-6 lg:px-24"
-      aria-label="Digital Assets Section"
+      className="relative flex min-h-screen snap-start items-center overflow-hidden bg-[#050505] px-6 pt-24 pb-12 text-white lg:px-24 lg:py-20"
+      aria-label="Precision and Prompt Chaining Section"
     >
       {/* Three.js Background */}
       <canvas
@@ -168,22 +168,24 @@ export const DigitalAssetsSection: React.FC<DigitalAssetsSectionProps> = ({
               <span key={i} className={i === 0 ? "block" : ""}>{word} </span>
             ))}
           </h1>
-          <p className="text-lg lg:text-xl text-gray-400 opacity-90">
+          <p className="text-lg lg:text-xl text-gray-300 opacity-90">
             {subtitle}
           </p>
 
+          <ul className="space-y-4 text-base leading-relaxed text-gray-300">
+            <li>
+              <strong>Powerful Prompt Phrases:</strong> Use specific language to set boundaries and force complex reasoning paths.
+            </li>
+            <li>
+              <strong>Prompt Chaining:</strong> Break massive projects down into a series of smaller, connected prompts to structure the entire conversation.
+            </li>
+          </ul>
+
           <div className="flex flex-wrap gap-4 pt-4">
             <button className="px-8 py-4 bg-[#6D28D9] rounded-xl font-semibold hover:bg-[#5b21b6] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-purple-900/20">
-              Quick start
-            </button>
-            <button className="px-8 py-4 bg-transparent border-2 border-slate-800 rounded-xl font-semibold flex items-center gap-2 hover:bg-slate-900 transition-all hover:border-[#6D28D9]">
-              <span className="text-cyan-400">✧</span> Build with Hope AI
+              Quick Start Guide
             </button>
           </div>
-
-          <p className="text-sm text-gray-500 mt-4">
-            *It's open source and free!
-          </p>
         </div>
 
         {/* Right Content - Visual Composition Mockup */}

@@ -53,11 +53,7 @@ const coreShader = {
 `
 };
 
-interface HeroProps {
-  onStartJourney?: () => void;
-}
-
-export const Hero: React.FC<HeroProps> = ({ onStartJourney }) => {
+export const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -232,7 +228,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartJourney }) => {
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-  const handleGetStarted = () => {
+  const scrollToCloudSection = () => {
     setIsTransitioning(true);
 
     // Smooth scroll to cloud section
@@ -247,7 +243,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartJourney }) => {
   };
 
   return (
-    <div className="relative m-0 h-screen w-screen overflow-hidden bg-black" ref={containerRef}>
+    <div className="relative m-0 h-screen w-screen snap-start overflow-hidden bg-black" ref={containerRef}>
       <canvas ref={canvasRef} className="absolute top-0 left-0 block h-full w-full" />
 
       <nav className="absolute top-0 left-0 z-20 flex w-full box-border items-center justify-between p-8 font-['Inter',sans-serif]">
@@ -279,19 +275,19 @@ export const Hero: React.FC<HeroProps> = ({ onStartJourney }) => {
 
       <div className="absolute top-0 left-0 z-10 flex h-screen w-full pointer-events-none flex-col items-center justify-center p-5 text-center text-white font-['Inter',sans-serif]">
         <div className="max-w-[800px] pointer-events-auto animate-[fadeIn_1.5s_ease-out]">
-          <h1 className="mb-4 text-[2.5rem] md:text-[4.5rem] font-extrabold bg-linear-to-r from-[#6D28D9] to-[#DB2777] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]">Explore The Universe</h1>
-          <p className="mx-auto mb-10 max-w-[600px] text-[1.1rem] md:text-[1.5rem] leading-relaxed opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">Experience the cosmic wonders of our universe through an interactive 3D particle simulation built with Three.js.</p>
+          <h1 className="mb-4 text-[2.5rem] md:text-[4.5rem] font-extrabold bg-linear-to-r from-[#6D28D9] to-[#DB2777] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]">Master AI Prompting</h1>
+          <p className="mx-auto mb-10 max-w-[760px] text-[1.1rem] md:text-[1.5rem] leading-relaxed opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">The Core Framework: Persona, Task, Format, and Context. Combine this structure with iterative refinement to consistently guide AI to accurate, high-quality results.</p>
           <button
-            onClick={handleGetStarted}
+            onClick={scrollToCloudSection}
             className="rounded-xl cursor-pointer bg-linear-to-l from-[#6D28D9] to-[#DB2777] py-4 px-9 text-[1.2rem] font-semibold text-white shadow-[0_4px_20px_rgba(109,40,217,0.4)] transition-all duration-300 hover:translate-y-[-3px] hover:shadow-[0_7px_30_rgba(109,40,217,0.6)] active:scale-95"
           >
-            Get Started
+            Learn the Framework
           </button>
           <button
-            onClick={onStartJourney}
+            onClick={scrollToCloudSection}
             className="rounded-xl cursor-pointer bg-transparent border-2 border-white/20 ml-4 py-4 px-9 text-[1.2rem] font-semibold text-white transition-all duration-300 hover:bg-white/10 hover:border-white/40 active:scale-95"
           >
-            Our Journey
+            Explore the 3 C&apos;s
           </button>
         </div>
         <div className="absolute bottom-8 left-1/2 translate-x-[-50%] animate-bounce text-2xl opacity-70">↓</div>

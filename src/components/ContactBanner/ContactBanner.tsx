@@ -1,17 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Calendar } from 'lucide-react';
-import { ContactForm } from '../ContactForm/ContactForm';
+import { Calendar } from 'lucide-react';
 
 interface ContactBannerProps {
   title?: string;
 }
 
 export const ContactBanner: React.FC<ContactBannerProps> = ({
-  title = "Ready to Scale Your Infrastructure?",
+  title = "Manage Context & Mitigate Drift",
 }) => {
   return (
-    <section className="relative w-full py-24 px-6 overflow-hidden bg-[#050505]">
+    <section className="relative w-full min-h-screen snap-start py-24 px-6 overflow-hidden bg-[#050505]">
       {/* Blending Gradient at the top to transition from dark section */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#050505] to-transparent z-10" />
 
@@ -51,24 +50,21 @@ export const ContactBanner: React.FC<ContactBannerProps> = ({
               </h2>
 
               <p className="text-lg text-indigo-200/80 mb-10 max-w-lg leading-relaxed">
-                Partner with our expert team to build, secure, and optimize your
-                compound digital assets for production-grade scale.
+                An AI&apos;s context window is its memory limit. Prevent off-topic drift by isolating new topics in fresh chats, providing up-to-date context, and keeping your instructions explicit.
               </p>
-
-              <div className="flex items-center gap-4 text-gray-400">
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500 uppercase font-bold">General Inquiries</p>
-                  <p className="text-sm font-medium text-white">consulting@agentic.ai</p>
-                </div>
-              </div>
             </div>
 
-            {/* Right Side: Contact Form */}
+            {/* Right Side: Evaluation Checklist */}
             <div className="bg-black/20 p-8 rounded-3xl border border-white/5">
-              <ContactForm />
+              <p className="mb-6 text-sm font-bold uppercase tracking-wider text-purple-300">
+                Before you use an AI output, always evaluate:
+              </p>
+              <ul className="space-y-4 text-indigo-100/90">
+                <li><strong>Accuracy:</strong> Is the information factually sound?</li>
+                <li><strong>Bias:</strong> Does it unfairly favor one perspective?</li>
+                <li><strong>Relevancy:</strong> Did it stay on topic?</li>
+                <li><strong>Consistency:</strong> Is the tone and quality uniform?</li>
+              </ul>
             </div>
           </div>
         </motion.div>
