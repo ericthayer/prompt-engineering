@@ -7,8 +7,8 @@ interface DigitalAssetsSectionProps {
 }
 
 export const DigitalAssetsSection: React.FC<DigitalAssetsSectionProps> = ({
-  title = "Compound Digital Assets",
-  subtitle = "Build, version, and share components to create scalable applications faster than ever"
+  title = "Precision & Prompt Chaining",
+  subtitle = "Don't just tell the AI what to do; guide how it should get there."
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -35,11 +35,11 @@ export const DigitalAssetsSection: React.FC<DigitalAssetsSectionProps> = ({
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
 
-    const pointLight = new THREE.PointLight(0x6d28d9, 10); // Massive increase
+    const pointLight = new THREE.PointLight(0xea580c, 10); // Orange keeps the lesson visual tied to the page palette
     pointLight.position.set(5, 5, 5);
     scene.add(pointLight);
 
-    const pinkLight = new THREE.PointLight(0xdb2777, 10); // Massive increase
+    const pinkLight = new THREE.PointLight(0xfb923c, 10);
     pinkLight.position.set(-5, -5, 5);
     scene.add(pinkLight);
 
@@ -58,7 +58,7 @@ export const DigitalAssetsSection: React.FC<DigitalAssetsSectionProps> = ({
     });
 
     const wireMaterial = new THREE.MeshBasicMaterial({
-      color: 0x6d28d9,
+      color: 0xea580c,
       wireframe: true,
       transparent: true,
       opacity: 0.3
@@ -66,10 +66,10 @@ export const DigitalAssetsSection: React.FC<DigitalAssetsSectionProps> = ({
 
     const assetGroups: THREE.Group[] = [];
     const assetData = [
-      { pos: [3.5, 3, -2], rot: [0.2, 0.4, 0.2], color: 0x6d28d9 },
-      { pos: [-4.5, 4, -4], rot: [-0.1, 0.2, 0.1], color: 0xdb2777 },
-      { pos: [-5.5, -3, 1], rot: [0.15, -0.15, 0.2], color: 0x6d28d9 },
-      { pos: [6, -4.5, -2], rot: [0.2, 0.1, -0.2], color: 0xdb2777 },
+      { pos: [3.5, 3, -2], rot: [0.2, 0.4, 0.2], color: 0xea580c },
+      { pos: [-4.5, 4, -4], rot: [-0.1, 0.2, 0.1], color: 0xfb923c },
+      { pos: [-5.5, -3, 1], rot: [0.15, -0.15, 0.2], color: 0xea580c },
+      { pos: [6, -4.5, -2], rot: [0.2, 0.1, -0.2], color: 0xfb923c },
     ];
 
     assetData.forEach(data => {
@@ -150,8 +150,9 @@ export const DigitalAssetsSection: React.FC<DigitalAssetsSectionProps> = ({
   return (
     <section
       ref={containerRef}
-      className="relative bg-[#050505] text-white flex items-center overflow-hidden pt-24 pb-12 lg:py-20 px-6 lg:px-24"
-      aria-label="Digital Assets Section"
+      id="chaining"
+      className="relative flex min-h-[100dvh] snap-start items-center overflow-hidden bg-[#10100f] px-6 py-16 text-white lg:px-24"
+      aria-label="Precision and Prompt Chaining Section"
     >
       {/* Three.js Background */}
       <canvas
@@ -162,68 +163,55 @@ export const DigitalAssetsSection: React.FC<DigitalAssetsSectionProps> = ({
 
       <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
-        <div className="flex flex-col gap-6 max-w-xl">
-          <h1 className="text-5xl lg:text-7xl font-bold tracking-tight">
-            {title.split(' ').map((word, i) => (
-              <span key={i} className={i === 0 ? "block" : ""}>{word} </span>
-            ))}
-          </h1>
-          <p className="text-lg lg:text-xl text-gray-400 opacity-90">
+        <div className="flex max-w-xl flex-col gap-6">
+          <h2 className="type-section font-bold leading-[1.05] tracking-tight">
+            {title}
+          </h2>
+          <p className="type-body leading-relaxed text-stone-300">
             {subtitle}
           </p>
 
-          <div className="flex flex-wrap gap-4 pt-4">
-            <button className="px-8 py-4 bg-[#6D28D9] rounded-xl font-semibold hover:bg-[#5b21b6] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-purple-900/20">
-              Quick start
-            </button>
-            <button className="px-8 py-4 bg-transparent border-2 border-slate-800 rounded-xl font-semibold flex items-center gap-2 hover:bg-slate-900 transition-all hover:border-[#6D28D9]">
-              <span className="text-cyan-400">✧</span> Build with Hope AI
-            </button>
+          <div className="type-card space-y-5 leading-relaxed text-stone-200">
+            <div>
+              <h3 className="mb-1 text-lg font-bold text-orange-300">Powerful Prompt Phrases</h3>
+              <p>Use specific language to set boundaries and force complex reasoning paths.</p>
+            </div>
+            <div>
+              <h3 className="mb-1 text-lg font-bold text-orange-300">Prompt Chaining</h3>
+              <p>Break massive projects down into a series of smaller, connected prompts to structure the entire conversation.</p>
+            </div>
           </div>
 
-          <p className="text-sm text-gray-500 mt-4">
-            *It's open source and free!
-          </p>
+          <div className="flex pt-2">
+            <a href="#evaluation" className="type-control inline-flex min-h-12 items-center bg-orange-400 px-6 py-3 font-semibold text-stone-950 transition-transform hover:-translate-y-0.5 active:translate-y-px">
+              Quick Start Guide
+            </a>
+          </div>
         </div>
 
-        {/* Right Content - Visual Composition Mockup */}
-        <div className="relative flex justify-center items-center h-[600px] lg:h-auto">
-          {/* Main composition card (Mobile frame style) */}
-          <div className="relative z-20 w-72 h-[500px] bg-[#0c0c14] border-4 border-[#1e1e2d] rounded-[2.5rem] overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a2e] to-black opacity-50" />
-            <div className="relative p-6 h-full flex flex-col justify-end gap-2">
-              <div className="w-full h-[300px] bg-gray-900 rounded-2xl mb-4 bg-[url('https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center shadow-inner" />
-              <h3 className="text-xl font-bold">Only (what I need)</h3>
-              <p className="text-xs text-gray-400">Composables</p>
-              <div className="h-1 w-full bg-gray-800 rounded-full mt-2 overflow-hidden">
-                <div className="h-full w-2/3 bg-purple-500 rounded-full" />
-              </div>
-            </div>
+        <div className="relative mx-auto w-full max-w-xl">
+          <div className="relative grid gap-3 border border-orange-200/25 bg-stone-950/70 p-5 backdrop-blur-sm md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-4">
+            <article className="border border-stone-700 bg-stone-900 p-5">
+              <p className="type-label mb-3 font-semibold tracking-[0.12em] text-orange-300">ONE FOCUSED TASK</p>
+              <p className="type-card font-semibold">Draft a concise project brief.</p>
+            </article>
+            <span className="hidden text-2xl text-orange-300 md:block" aria-hidden="true">→</span>
+            <article className="border border-orange-300 bg-orange-400 p-5 text-stone-950">
+              <p className="type-label mb-3 font-bold tracking-[0.12em]">CHECK THE RESULT</p>
+              <p className="type-card font-bold">Find gaps. Refine. Continue.</p>
+            </article>
           </div>
-
-          {/* Floating UI Elements & Connectors (Matching image composition) */}
-          <div className="absolute left-[80%] top-[30%] w-48 h-32 bg-[#161625]/80 backdrop-blur-md border border-white/10 rounded-xl p-4 shadow-xl -rotate-6 hidden lg:block">
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-10 h-1 bg-purple-500 rounded-full" />
-              <p className="text-[10px] uppercase font-bold text-gray-400">Install v1.0.2</p>
-            </div>
-            <div className="h-full space-y-2">
-              <div className="h-2 w-full bg-gray-800 rounded" />
-              <div className="h-2 w-3/4 bg-gray-800 rounded" />
-            </div>
+          <div className="mt-3 grid gap-3 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-4">
+            <article className="border border-stone-700 bg-stone-900 p-5">
+              <p className="type-label mb-3 font-semibold tracking-[0.12em] text-orange-300">NEXT PROMPT</p>
+              <p className="type-card font-semibold">Rewrite only the missing section.</p>
+            </article>
+            <span className="hidden text-2xl text-orange-300 md:block" aria-hidden="true">→</span>
+            <article className="border border-stone-700 bg-stone-900 p-5">
+              <p className="type-label mb-3 font-semibold tracking-[0.12em] text-orange-300">FINAL PASS</p>
+              <p className="type-card font-semibold">Verify facts and format.</p>
+            </article>
           </div>
-
-          {/* Connectors (Abstractly represented via CSS) */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none hidden lg:block" style={{ filter: 'drop-shadow(0 0 8px rgba(219, 39, 119, 0.4))' }}>
-            <path
-              d="M 400 350 Q 550 350 600 250"
-              fill="none"
-              stroke="#DB2777"
-              strokeWidth="2"
-              strokeDasharray="4 4"
-              className="animate-[dash_2s_linear_infinite]"
-            />
-          </svg>
         </div>
       </div>
     </section>

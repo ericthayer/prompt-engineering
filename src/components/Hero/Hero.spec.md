@@ -1,7 +1,7 @@
 # SPEC: Hero
 
 ## 1. Goal & Intent
-The Hero section provides the first impression of the "Stellar" application. It features a high-performance 3D particle simulation of a galaxy/universe, reinforcing the high-tech and cosmic theme of the brand.
+The Hero section provides the first impression of the "LearnAI" application. It features a high-performance 3D particle simulation of a galaxy/universe, reinforcing the high-tech and cosmic theme of the brand.
 
 ## 2. Usage & Interface
 The entry point component for the landing page.

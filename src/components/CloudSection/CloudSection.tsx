@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import * as THREE from 'three';
 
@@ -71,7 +71,6 @@ const cloudShader = {
 export const CloudSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -172,48 +171,11 @@ export const CloudSection: React.FC = () => {
     };
     animate(0);
 
-    // Intersection Observer for visibility
-    const observer = new IntersectionObserver(
-      () => {
-        // We are using scroll progress instead of a simple boolean visibility
-      },
-      { threshold: 0.1 }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    // Scroll listener for parallax/fade
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Calculate how far through the section we are (0 to 1)
-      const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (rect.height + windowHeight)));
-      setScrollProgress(progress);
-
-      // Update shader opacity based on scroll
-      // Fade in at the start, stay fully opaque, fade out at the end
-      let currentOpacity = 0;
-      if (progress < 0.2) {
-        currentOpacity = progress / 0.2;
-      } else if (progress > 0.8) {
-        currentOpacity = (1 - progress) / 0.2;
-      } else {
-        currentOpacity = 1;
-      }
-      material.uniforms.opacity.value = currentOpacity;
-    };
-
-    window.addEventListener('scroll', handleScroll);
+    material.uniforms.opacity.value = 1;
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('scroll', handleScroll);
       cancelAnimationFrame(animationFrameId);
-      observer.disconnect();
       geometry.dispose();
       material.dispose();
       renderer.dispose();
@@ -221,20 +183,22 @@ export const CloudSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="cloud-section" className="relative flex w-full flex-col items-center overflow-hidden bg-black" ref={containerRef}>
-      <div className="sticky top-0 z-10 h-screen w-full">
-        <div className="absolute top-1/2 left-1/2 z-20 flex w-full translate-x-[-50%] translate-y-[-50%] pointer-events-none flex-col items-center justify-center p-5 text-center text-white">
-          <h2 className={`mb-8 max-w-[900px] text-[clamp(2.5rem,8vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-1000 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${scrollProgress > 0.2 && scrollProgress < 0.9 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-5 blur-[8px]'}`}>
-            Say hello to the ultimate shader editor.
+    <section id="cloud-section" className="relative flex min-h-[100dvh] w-full snap-start flex-col items-center overflow-hidden bg-[#10100f]" ref={containerRef}>
+      <div className="relative z-10 flex min-h-[100dvh] w-full items-center">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,88,12,0.28),transparent_52%)]" />
+        <div className="relative z-20 mx-auto flex w-full max-w-5xl flex-col items-start px-6 py-20 text-left text-white lg:px-12">
+          <p className="type-label mb-5 font-semibold tracking-[0.12em] text-orange-300">WRITE WITH INTENT</p>
+          <h2 className="type-section mb-8 max-w-4xl font-extrabold leading-[1.05] tracking-tight">
+            The Three C&apos;s of Prompt Writing
           </h2>
-          <p className={`mx-auto mb-12 max-w-[550px] text-[clamp(1rem,2vw,1.35rem)] font-normal leading-relaxed text-white/90 transition-all duration-1000 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${scrollProgress > 0.3 && scrollProgress < 0.9 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-5 blur-[8px]'}`}>
-            Create, fork and publish shader graphs with the world using an intuitive and easy to use tool built for all.
+          <p className="type-body mb-10 max-w-[65ch] leading-relaxed text-stone-200">
+            Write better prompts by keeping them <strong>Concise</strong> (avoiding overly complex requests), <strong>Clear</strong> (providing precise, unambiguous directions), and <strong>Consistent</strong> (using the same vocabulary for the same concepts throughout your chat).
           </p>
-          <button className={`pointer-events-auto cursor-pointer rounded-xl bg-white py-4.5 px-10 text-[1.15rem] font-bold text-black transition-all duration-1000 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:scale-[1.08] hover:shadow-[0_10px_40px_rgba(255,255,255,0.3)] active:scale-95 ${scrollProgress > 0.4 && scrollProgress < 0.9 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-5 blur-[8px]'}`}>
-            Open App →
-          </button>
+          <a href="#chaining" className="type-control inline-flex min-h-12 items-center border border-orange-300 bg-orange-400 px-6 py-3 font-bold text-stone-950 transition-transform hover:-translate-y-0.5 active:translate-y-px">
+            Read the Guidelines
+          </a>
         </div>
-        <canvas ref={canvasRef} className="block h-full w-full" />
+        <canvas ref={canvasRef} className="absolute inset-0 block h-full w-full opacity-35" aria-hidden="true" />
       </div>
 
     </section>

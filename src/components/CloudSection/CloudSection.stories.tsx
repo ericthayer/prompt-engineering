@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { CloudSection } from './CloudSection';
 
 const meta: Meta<typeof CloudSection> = {
